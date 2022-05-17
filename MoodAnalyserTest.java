@@ -15,7 +15,6 @@ public class MoodAnalyserTest {
             e.printStackTrace();
         }
     }
-
     @Test
     public void givenMessage_WhenProper_ShouldReturnHappy() {
         MoodAnalyizer1 moodAnalyser = new MoodAnalyizer1(null);
@@ -27,7 +26,6 @@ public class MoodAnalyserTest {
             Assertions.assertEquals(MoodAnalyserExceptionHandling.ExceptionType.ENTERED_NULL, e.type);
         }
     }
-
     @Test
     public void testMoodAnalysis_whenMoodIsNull_ShouldThrowException() {
         MoodAnalyizer1 moodAnalyser = new MoodAnalyizer1(null);
@@ -39,6 +37,22 @@ public class MoodAnalyserTest {
             Assertions.assertEquals(MoodAnalyserExceptionHandling.ExceptionType.ENTERED_NULL, e.type);
         }
     }
+    @Test
+    public void testMoodAnalysis_whenMoodIsEmpty_ShouldThrowException() {
+        MoodAnalyizer1 moodAnalyzer = new MoodAnalyizer1("");
+        try {
+            moodAnalyzer.analyseMood();
+        } catch (MoodAnalyserExceptionHandling e) {
+            System.out.println(e);
+            System.out.println(e.type);
+            Assertions.assertEquals(MoodAnalyserExceptionHandling.ExceptionType.ENTERED_EMPTY , e.type);
+        }
+    }
+
+
+
+
+
 }
 
 
